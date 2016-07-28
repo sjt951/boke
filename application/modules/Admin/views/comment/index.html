@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>评论管理</title>
+    <hdjs/>
+    <bootstrap/>
+    <link rel="stylesheet" type="text/css" href="http://sjt.com/public/css/hdjs.css"/>
+</head>
+<body>
+<div class="wrap">
+    <table class="hd-table hd-table-list">
+        <thead>
+    		<tr>
+				<td width="7%">id</td>
+				<td width="10%">用户</td>
+				<td width="20%">文章id</td>
+				<td width="40%">评论内容</td>
+				<td width="15%">评论时间</td>
+				<td>操作</td>
+			</tr>
+        </thead>
+        <tbody>
+            <?php foreach($com as $v){?>
+        	<tr>
+                <td width="7%"><?php echo $v['coid']?></td>
+                <td width="10%"><?php echo $v['user']?></td>
+                <td width="20%"><?php echo $v['article_aid']?></td>
+                <td width="40%"><?php echo $v['comcon']?></td>
+                <td width="15%"><?php echo $v['addtime']?></td>
+                <td><a href="http://sjt.com/admin/comment/del/coid/<?php echo $v['coid']?>">删除</a></td>
+            </tr>
+            <?php }?>
+        </tbody>
+    </table>
+    <div class="page_hdjob">
+      	
+    </div>
+</div>
+
+</body>
+</html>
+
+

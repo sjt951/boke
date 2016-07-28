@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>添加文章</title>
+    <style type="text/css">
+		.checkbox{
+			 margin-left:5px;
+			 width:90px;
+			 margin-top: 10px;
+		}
+		textarea{
+			width: 300px;
+			height: 100px;
+		}
+    </style>
+    <link rel="stylesheet" type="text/css" href="http://sjt.com/public/hdjs.css"/>
+    <script type="text/javascript" charset="utf-8" src="http://sjt.com/public/ueditor1_4_3/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://sjt.com/public/ueditor1_4_3/ueditor.all.min.js"> </script>
+     <script type="text/javascript" charset="utf-8" src="http://sjt.com/public/ueditor1_4_3/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="hd-title-header">添加文章</div>
+    <form action="http://sjt.com/admin/article/add" method="post" class="form-inline hd-form" enctype="multipart/form-data">
+        <table class="hd-table hd-table-list">
+            <tr>
+                <th class="w100">文章标题</th>
+                <td class="w100">
+                    <input type="text" name="title" class="w200"/> 
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="w100">作者</th>
+                <td>
+                    <input type="text" name="author" class="w200" value="sjt"/>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="w100">所属分类</th>
+                <td>
+                    <?php foreach($cate as $v){?>
+                			<label for="cid-<?php echo $v['cid']?>">
+                				<input type="checkbox" name="cid[]" id="cid-<?php echo $v['cid']?>" value="<?php echo $v['cid']?>"/> <?php echo $v['cname']?>
+                			</label>
+                		<?php }?>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <th class="w100">文章摘要</th>
+                <td>
+                		<textarea name="digest" rows="" cols=""></textarea>
+                </td>
+                <td></td>
+            </tr>
+           
+          
+            <tr>
+                <th class="w100">文章标签</th>
+                <td>
+                		<?php foreach($tag as $v){?>
+                			<label for="tid-<?php echo $v['tid']?>">
+                				<input type="checkbox" name="tid[]" id="tid-<?php echo $v['tid']?>" value="<?php echo $v['tid']?>"/> <?php echo $v['tname']?>
+                			</label>
+                		<?php }?>
+                		
+                </td>
+                <td></td>
+            </tr>
+             
+             <tr>
+                <th class="w100">文章正文</th>
+                <td>
+                    <script id="editor" type="text/plain" style="width:600px;height:500px;" name="content"></script>
+                    <script>
+	        				var ue = UE.getEditor('editor');
+	   				 </script>
+                </td>
+                <td></td>
+            </tr>
+        
+        </table>
+        <div class="position-bottom">
+            <input type="submit" class="hd-success" value="添加"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

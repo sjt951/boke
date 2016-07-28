@@ -1,0 +1,25 @@
+<!-- 顶部 -->
+<?php Yaf\Loader::import(__DIR__.'/head.html')?>
+	<!-- 主体内容 -->
+	<div class="container">
+		<div class="row">
+			<!-- 文章 -->
+			<div id="left" class="col-md-8">
+				<div class="art">
+					<div class="title">
+						<h2><?php echo $art['title']?></h2>
+					</div>
+					<div class="title">
+						<p> 作者：<?php echo $art['author']?> • <?php echo date('Y-m-d H:i:s',$art['time'])?> </p>
+					</div>
+					<div>
+						<p>  <?php echo $content;?></p>
+					</div>
+				</div>
+			</div>
+			<!-- 右侧 -->
+			<?php Yaf\Loader::import(__DIR__.'/right.html')?>
+		</div>		
+	</div>
+</body>
+</html>

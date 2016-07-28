@@ -1,0 +1,42 @@
+<!-- 顶部 -->
+<?php Yaf\Loader::import(__DIR__.'/head.html')?>
+
+	<!-- 主体内容 -->
+	<div class="container">
+		<div class="row">
+			<!-- 文章 -->
+			<div id="left" class="col-md-8">
+				<div class="art">
+					<div class="title">
+						<a href="http://sjt.com/index/index/article/aid/<?php echo $art_one['aid']?>"><h2><?php echo $art_one['title']?></h2></a>
+					</div>
+					<div class="title">
+						<p> 作者：<?php echo $art_one['author']?> • <?php echo date('Y-m-d H:i:s',$art_one['time'])?> </p>
+					</div>
+					<div>
+						<p><?php echo $art_one['digest']?></p>
+					</div>
+				</div>
+			</div>
+			<!-- 右侧 -->
+				<?php Yaf\Loader::import(__DIR__.'/right.html')?>
+			<!-- 文章 -->
+			<?php foreach($art as $v){?>
+			<div id="left" class="col-md-8">
+				<div class="art">
+					<div class="title">
+						<a href="http://sjt.com/index/index/article/aid/<?php echo $v['aid']?>"><h2><?php echo $v['title']?></h2></a>
+					</div>
+					<div class="title">
+						<p> 作者：<?php echo $v['author']?> • <?php echo date('Y-m-d H:i:s',$v['time'])?> </p>
+					</div>
+					<div>
+						<p><?php echo $v['digest']?></p>
+					</div>
+				</div>
+			</div>
+			<?php } ?>
+		</div>		
+	</div>
+</body>
+</html>

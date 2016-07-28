@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>文章管理</title>
+    <link rel="stylesheet" type="text/css" href="http://sjt.com/public/css/hdjs.css"/>
+</head>
+<body>
+<div class="wrap">
+    <table class="hd-table hd-table-list">
+        <thead>
+        <tr>
+            <td width="50">id</td>
+            <td width="150">文章标题</td>
+            <td width="180">添加时间</td>
+            <td width="100">所属分类</td>
+            <td width="150">所属标签</td>
+            <td width="50">作者</td>
+         
+            <td width="150">操作</td>
+        </tr>
+        </thead>
+        <tbody>
+        		<?php foreach($art as $v){?>
+        	
+	            <tr>
+		            <td width="50"><?php echo $v['aid']?></td>
+		            <td width="150"><?php echo $v['title']?></td>	
+		            <td width="180"><?php echo date('Y-m-d H:i:s',$v['time'])?></td>
+		            <td width="100"><?php echo $v['category']?></td>
+		            <td width="150"><?php echo $v['tag']?></td>
+		            <td width="50"><?php echo $v['author']?></td>
+		            <td width="150">						
+						<a href="http://sjt.com/admin/article/del/aid/<?php echo $v['aid']?>" class="hd-btn hd-btn-danger hd-btn-sm">删除</a>
+		            </td>
+	        		</tr>
+        		<?php } ?>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
+ 
+
