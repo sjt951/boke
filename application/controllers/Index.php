@@ -18,7 +18,7 @@ class IndexController extends Yaf\Controller_Abstract {
 // 		获取文章数据
 		$model = new IndexModel();
 		$art = $model -> getInfo('article','','time desc',3);
-		$this -> assignArt($art);
+		$this -> getView() ->assign('art', $art);
         return true;
 	}
 	
@@ -30,16 +30,19 @@ class IndexController extends Yaf\Controller_Abstract {
 	 	$cid = $this->getRequest()->getParam('cid');
 	 	$tid = $this->getRequest()->getParam('tid');
 		$model = new IndexModel();
-	 	
 // 		按分类找文章
 	 	if($cid && $cid <= 5){
 	 		$model = new IndexModel();
-	 		$a_c = $model -> getInfo('art_cate','category_cid='.(int)$cid,'',3);
 	 		$data = array();
+	 		$a_c = $model -> getInfo('art_cate','category_cid='.(int)$cid,'',3);
 	 		foreach($a_c as $v ){ 		
 	 			$data[] = $model -> getInfo('article','aid='.$v['article_aid'],'',3);
 	 		}
-	 		$data = $data[0];
+	 		
+	 		foreach ($data as $v){
+	 			$arr[] = $v[0];
+	 		}
+	 		$data = $arr;
 // 	 	按标签找文章
 	 	}else if($tid && $tid <= 7){
 	 		$model = new IndexModel();
@@ -47,20 +50,25 @@ class IndexController extends Yaf\Controller_Abstract {
 	 		$data = array();
 	 		foreach($a_t as $v ){ 		
 	 			$data[] = $model -> getInfo('article','aid='.$v['article_aid'],'',3);
-	 		}	 		
-	 		$data = $data[0];
+	 		}
+	 		foreach ($data as $v){
+	 			$arr[] = $v[0];
+	 		}
+	 		$data = $arr;	 
 // 	 	时间顺序
 	 	}else{
 	 		$model = new IndexModel();
 	 		$data = array();
 	 		$art = $model -> getInfo('article','','time desc',3);
+
+	 		
 	 		foreach($art as $v ){
-	 			$data[][0] = $v;
+	 			$data[] = $v;
 	 		}
-	 		$data = $data[0];
 	 	}
 // 	 	分配
-	 	$this -> assignArt($data);
+		
+		$this -> getView() ->assign('art', $data);
 	 	$this -> getComent();
         return true;
 	}
@@ -121,12 +129,5 @@ class IndexController extends Yaf\Controller_Abstract {
 		$this -> getView() -> assign("cate", $CategoryInfo);
 	}
 	
-	/**
-	 * 分配文章信息
-	 */
-	private function assignArt($art){
-		$this -> getView() ->assign('art_one', $art[0]);
-		$art = array_slice($art, 1);
-		$this -> getView() ->assign('art', $art);
-	}
+	
 }

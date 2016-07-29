@@ -1,42 +1,132 @@
-<!-- 顶部 -->
-<?php Yaf\Loader::import(__DIR__.'/head.html')?>
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
 
-	<!-- 主体内容 -->
-	<div class="container">
-		<div class="row">
-			<!-- 文章 -->
-			<div id="left" class="col-md-8">
-				<div class="art">
-					<div class="title">
-						<a href="http://sunjc.me/index/index/article/aid/<?php echo $art_one['aid']?>"><h2><?php echo $art_one['title']?></h2></a>
-					</div>
-					<div class="title">
-						<p> 作者：<?php echo $art_one['author']?> • <?php echo date('Y-m-d H:i:s',$art_one['time'])?> </p>
-					</div>
-					<div>
-						<p><?php echo $art_one['digest']?></p>
-					</div>
+    <!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>sunjc.me</title>
+	<meta name="description" content="Free Responsive Html5 Css3 Templates Designed by Kimmy | chinaz.com">
+	
+    <!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- CSS
+  ================================================== -->
+  	<link rel="stylesheet" href="http://sunjc.me/public/css/index/zerogrid.css">
+	<link rel="stylesheet" href="http://sunjc.me/public/css/index/style.css">
+    <link rel="stylesheet" href="http://sunjc.me/public/css/index/responsive.css">
+	
+	<!--[if lt IE 8]>
+       
+    <![endif]-->
+    <!--[if lt IE 9]>
+		<script src="http://sunjc.me/public/js/html5.js"></script>
+		<script src="http://sunjc.me/public/js/css3-mediaqueries.js"></script>
+	<![endif]-->
+	
+	<link href='http://sunjc.me/public/images/index/favicon.ico' rel='icon' type='image/x-icon'/>
+    
+</head>
+<body>
+<div class="wrap-body zerogrid">
+<!--------------Header--------------->
+<header>
+	<div class="wrap-header">
+		
+		
+		
+		<div id="logo">
+			<a href=""><h1>sunjc.me</h1></a>
+			<p>Free Responsive Html5 and Css3 Templates</p>
+		</div>
+		
+		<nav>
+			<div class="wrap-nav">
+				<div class="menu">
+					<ul>
+						<li><a href="http://sunjc.me">主页</a></li>
+						<li><a href="http://sunjc.me/index/index/list">博文</a></li>
+						<li><a href="http://user.qzone.qq.com/1733687295" target="view_frame">Qzone</a></li>
+					</ul>
 				</div>
 			</div>
-			<!-- 右侧 -->
-		<?php Yaf\Loader::import(__DIR__.'/right.html')?>
-			<!-- 文章 -->
-			<?php foreach($art as $v){?>
-			<div id="left" class="col-md-8">
-				<div class="art">
-					<div class="title">
-						<a href="http://sunjc.me/index/index/article/aid/<?php echo $v['aid']?>"><h2><?php echo $v['title']?></h2></a>
-					</div>
-					<div class="title">
-						<p> 作者：<?php echo $v['author']?> • <?php echo date('Y-m-d H:i:s',$v['time'])?> </p>
-					</div>
-					<div>
-						<p><?php echo $v['digest']?></p>
-					</div>
-				</div>
-			</div>
-			<?php } ?>
-		</div>		
+		</nav>
+		
 	</div>
+</header>
+<div align=center>
+<div style=“width:960px; margin:0 auto; height:90px;”>
+</div>
+</div>
+
+			
+<!--------------Content--------------->
+<section id="content">
+	<div class="wrap-content">
+		<div class="row block">
+			<div id="main-content" class="col-2-3">
+				<div class="wrap-col">
+					<?php foreach($art as $v){?>					
+					<article>
+						<div class="heading">
+							<h2><a href="http://sunjc.me/index/index/article/aid/<?php echo $v['aid']?>"><h2><?php echo $v['title']?></h2></a></h2>
+						</div>
+						<div class="content">
+							<?php echo $v['digest']?>	
+						</div>
+						<div class="info">
+							<p>By <?php echo $v['author']?> on <?php echo date('Y-m-d H:i:s',$v['time'])?> </p>
+						</div>
+					</article>
+					<?php } ?>
+				</div>
+			</div>
+			<div id="sidebar" class="col-1-3">
+				<div class="wrap-col">
+					<div class="box">
+						<div class="heading"><h2>Acticle</h2></div>
+						<div class="content">
+							<ul>
+								<?php foreach ($new as $v){ ?>
+									<li><a href="http://sunjc.me/index/index/article/aid/<?php echo $v['aid']?>"><?php echo $v['title']?></a><p style="float:right"><?php echo date('m-d',$v['time'])?></p></li>
+								<?php } ?>
+							</ul>	
+						</div>
+					</div>
+					
+					
+
+					<div class="box">
+						<div class="heading"><h2>Categories</h2></div>
+						<div class="content">
+							<ul>
+								<?php foreach ($cate as $v){ ?>
+									<li><a href="http://sunjc.me/index/index/list/cid/<?php echo $v['cid']?>"><?php echo $v['cname']?></a></li>
+								<?php } ?>
+							</ul>
+						</div>
+					</div>
+					
+					
+					
+					<div class="box">
+						<div class="heading"><h2>Tag</h2></div>
+						<div class="content">
+							<ul>
+								<?php foreach ($tag as $v){ ?>
+									<li><a href="http://sunjc.me/index/index/list/tid/<?php echo $v['tid']?>"><?php echo $v['tname']?></a></li>
+								<?php } ?>
+							</ul>
+						</div>
+					</div>
+
+
+                    <div style=“width:300px; margin:0 auto; height:250px”>
+
 </body>
 </html>
