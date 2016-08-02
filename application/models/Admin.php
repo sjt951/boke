@@ -99,7 +99,7 @@ class AdminModel{
 		return $arr;
 	}
 	private function Mysql(){
-		$mysqli = @new mysqli("127.0.0.1","root","123456","boke");
+		$mysqli = @new mysqli("localhost","root","123456","boke");
 		if($mysqli->connect_errno){
 			echo $mysqli->connect_errno;exit;
 		}

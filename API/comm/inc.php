@@ -1,0 +1,2 @@
+<?php die('forbidden'); ?>
+{"appid":"101336059","appkey":"449d82ed6176f92d591915b1dbb22ec2","callback":"http://sunjc.me/index.php","scope":"get_user_info","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test"}
