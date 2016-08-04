@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <title>狼人杀</title>
+    <style type="text/css">
+		.checkbox{
+			 margin-left:5px;
+			 width:90px;
+			 margin-top: 10px;
+		}
+		textarea{
+			width: 300px;
+			height: 100px;
+		}
+    </style>
+    <link rel="stylesheet" type="text/css" href="http://sunjc.me/public/css/hdjs.css"/>
+    <script type="text/javascript" charset="utf-8" src="http://sunjc.me/public/ueditor1_4_3/js/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="http://sunjc.me/public/ueditor1_4_3/js/ueditor.all.min.js"> </script>
+     <script type="text/javascript" charset="utf-8" src="http://sunjc.me/public/ueditor1_4_3/js/lang/zh-cn/zh-cn.js"></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="hd-title-header">狼人杀</div>
+    <form action="http://sunjc.me/langren/index/show" method="post" class="form-inline hd-form" enctype="multipart/form-data">
+        <table class="hd-table hd-table-list">
+            <tr>
+                <th class="w100">游戏人数</th>
+                <td class="w100">
+                    <input type="text" name="haoren" class="w200"/> 
+                </td>
+            </tr>
+            <tr>
+                <th class="w100">普通狼人数量</th>
+                <td class="w100">
+                    <input type="text" name="langren" class="w200"/> 
+                </td>
+            </tr>
+            <tr>
+                <th class="w100">角色</th>
+                <td>
+                			<label for="">
+                				<input type="checkbox" name="shenfen[]" id="cid-1" value="1"/>预言家
+                				<input type="checkbox" name="shenfen[]"id="cid-2" value="2"/>女巫
+                				<input type="checkbox" name="shenfen[]" id="cid-3" value="3"/>猎人
+                				<input type="checkbox" name="shenfen[]" id="cid-4" value="4"/>白痴
+                				<input type="checkbox" name="shenfen[]" id="cid-5" value="5"/>守卫
+                				<input type="checkbox" name="shenfen[]" id="cid-7" value="7"/>狼王
+                				<input type="checkbox" name="shenfen[]" id="cid-8" value="8"/>盗贼
+                				<input type="checkbox" name="shenfen[]" id="cid-9" value="6"/>丘比特
+                			</label>
+                </td>
+            </tr>
+            
+        
+        </table>
+        <div class="position-bottom">
+            <input type="submit" class="hd-success" value="确定"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
