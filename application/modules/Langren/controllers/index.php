@@ -7,23 +7,20 @@ class IndexController extends Yaf\Controller_Abstract{
 	}
 	public function ShowAction(){
 		if($this->getRequest()->isPost()){
-			$gsf = array();
-			$bsf = array();
 			$post = $this->getRequest()->getPost();
-			$result = array();
+			
 			$num = $post['haoren'];
+			
 			$lrnum = $post['langren'];
+
+			$sfnum = count($post['shenfen']);
+			
+			$pnum = $num - $lrnum - $sfnum;
+			
+			$result = array();
 			foreach ($post['shenfen'] as $v){
-				if($v==1 || $v==2 || $v==3 || $v==4 || $v==5){
-					$gsf[]=$v;
-				}
-				if($v==6 || $v==7){
-					$bsf[]=$v;
-				}
 				$result[][] = (int)$v;
 			}
-			$sfnum = count($post['shenfen']);
-			$pnum = $num - $lrnum - $sfnum;
 			for ($x=0; $x<$pnum; $x++) {
 				$result[][]=10;
 			}
@@ -71,9 +68,7 @@ class IndexController extends Yaf\Controller_Abstract{
 			{
 				$result_sf[] = $result[$v];
 			}
-			$this->getView()->assign('result', $result_sf);
-			
-			
+			$this->getView()->assign('result', $result_sf);	
 		}
 		return true;
 	}
